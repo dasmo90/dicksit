@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Dicksit</string>
     <string name="action_settings">Settings</string>
+    <string name="new_game">New Game</string>
+    <string name="join_game">Join Game</string>
+    <string name="game_password">Password</string>
 </resources>

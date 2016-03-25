@@ -1,18 +1,16 @@
 package de.marmor.dicksit;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.InputMismatchException;
 
 import de.marmor.dicksit.game.ChangeCallback;
 import de.marmor.dicksit.game.Game;
@@ -23,9 +21,12 @@ import de.marmor.dicksit.game.remote.GameRemoteProvider;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Typeface TYPEFACE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TYPEFACE = Typeface.createFromAsset(getAssets(), "fonts/Drift___.ttf");
 
         Log.d(MainActivity.class.getSimpleName(), "create");
 
@@ -33,15 +34,24 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        if (fab != null) {
-            fab.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
-                }
-            });
+        TextView headline = (TextView) findViewById(R.id.text_headline);
+        if(headline != null) {
+            headline.setTypeface(TYPEFACE);
+        }
+
+        TextView newGame = (TextView) findViewById(R.id.btn_new_game);
+        if(newGame != null) {
+            newGame.setTypeface(TYPEFACE);
+        }
+
+        TextView joinGame = (TextView) findViewById(R.id.btn_join_game);
+        if(joinGame != null) {
+            joinGame.setTypeface(TYPEFACE);
+        }
+
+        TextView password = (TextView) findViewById(R.id.input_pw);
+        if(password != null) {
+            password.setTypeface(null);
         }
 
         GameRemoteProvider<Integer> gameRemoteProvider = new GameRemoteProvider<>();
