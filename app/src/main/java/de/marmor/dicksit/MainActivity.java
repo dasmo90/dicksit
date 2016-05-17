@@ -1,5 +1,6 @@
 package de.marmor.dicksit;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -42,6 +44,14 @@ public class MainActivity extends AppCompatActivity {
         TextView newGame = (TextView) findViewById(R.id.btn_new_game);
         if(newGame != null) {
             newGame.setTypeface(TYPEFACE);
+            newGame.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent i = new Intent(MainActivity.this, NewGame.class);
+                    startActivity(i);
+                }
+            });
         }
 
         TextView joinGame = (TextView) findViewById(R.id.btn_join_game);

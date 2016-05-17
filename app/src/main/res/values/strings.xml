@@ -4,4 +4,6 @@
     <string name="new_game">New Game</string>
     <string name="join_game">Join Game</string>
     <string name="game_password">Password</string>
+    <string name="title_activity_new_game">New Game</string>
+    <string name="title_activity_game">GameActivity</string>
 </resources>
